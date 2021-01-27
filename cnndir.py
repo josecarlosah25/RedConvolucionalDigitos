@@ -11,7 +11,18 @@ import io;
 import os;
 
 
-#Programa para probar una imagen con la red neuronal
+
+def getNumbers(dir):
+
+	numList=[]
+	for filename in os.listdir(dir):
+		identifiedNumber=str(test(dir,filename))
+		if(len(identifiedNumber)>0):
+			numList.append(filename + ': ' + identifiedNumber)		
+	return numList	
+
+
+
 
 def test(carpeta,archivo):
 
@@ -36,7 +47,4 @@ def test(carpeta,archivo):
 	return str(pred)
 
 
-directory = 'numeros'
 
-for filename in os.listdir(directory):
-	print(filename + ': ' + test(directory,filename))
