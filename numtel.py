@@ -12,8 +12,17 @@ import io;
 
 #Programa para probar una imagen con la red neuronal
 
-def test(archivo):
+def listToString(s):  
+    
+    # initialize an empty string 
+    str1 = " " 
+    
+    # return string   
+    return (str1.join(s)) 
 
+def test(archivo):
+	prediction=[]
+	print("Analyzing file")
 	WIDTH = 28
 	#Abre la imagen, cambia tamanio y lo convierte a un arreglo 
 	img = Image.open(archivo).convert('L')
@@ -33,7 +42,8 @@ def test(archivo):
 
 	for i in range(10):
 		pred, prob = predict(X[i], f1, f2, w3, w4, b1, b2, b3, b4)
-		print(pred)
+		prediction.append(pred)
 
+	str1 = ''.join(str(e) for e in prediction)
+	return listToString(str1)
 
-test('numtel.png')
