@@ -13,12 +13,11 @@ import os;
 
 
 def getNumbers(dir):
-
 	numList=[]
 	for filename in os.listdir(dir):
 		identifiedNumber=str(test(dir,filename))
 		if(len(identifiedNumber)>0):
-			numList.append(filename + ': ' + identifiedNumber)		
+			numList.append(filename + ': ' + identifiedNumber)	
 	return numList	
 
 

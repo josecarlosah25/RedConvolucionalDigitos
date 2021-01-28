@@ -6,6 +6,7 @@ import argparse
 import matplotlib.pyplot as plt
 import pickle
 
+
 from PIL import Image;
 import io;
 
@@ -22,10 +23,13 @@ def listToString(s):
 
 def test(archivo):
 	prediction=[]
-	print("Analyzing file")
 	WIDTH = 28
 	#Abre la imagen, cambia tamanio y lo convierte a un arreglo 
 	img = Image.open(archivo).convert('L')
+
+	imgTemp=Image.open(archivo)
+	imgTemp.save("web/temp/1/1.png")
+
 	img_rs = img.resize((10*WIDTH,WIDTH))
 	img_array = np.asarray(img_rs)
 
