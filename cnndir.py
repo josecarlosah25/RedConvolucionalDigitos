@@ -13,23 +13,27 @@ import os;
 
 
 def getNumbers(dir):
-
 	numList=[]
+	index=0
 	for filename in os.listdir(dir):
-		identifiedNumber=str(test(dir,filename))
+		identifiedNumber=str(test(dir,filename,index))
 		if(len(identifiedNumber)>0):
-			numList.append(filename + ': ' + identifiedNumber)		
+			#numList.append(filename + ': ' + identifiedNumber)	
+			numList.append(identifiedNumber)	
+			index=index+1
 	return numList	
 
 
 
 
-def test(carpeta,archivo):
+def test(carpeta,archivo,index):
 
 	WIDTH = 28
 	#Abre la imagen, cambia tamanio y lo convierte a un arreglo
 	try:
 		img = Image.open(carpeta+'/'+archivo).convert('L')
+		imgTemp=Image.open(carpeta+'/'+archivo)
+		imgTemp.save("web/temp/2/"+str(index)+".png")
 	except IOError:
 		return '' 
 	img_rs = img.resize((WIDTH,WIDTH))
